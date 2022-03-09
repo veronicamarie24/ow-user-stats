@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from "react";
+import { styled } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+
+const Item = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.primary
+}));
 
 const UserStats = () => {
   const [userStats, setUserStats] = useState({});
@@ -84,16 +94,36 @@ const UserStats = () => {
           Search
         </Button>
       </div>
-      <div className="user-container">
-        <Avatar alt={name} src={icon} sx={{ width: 56, height: 56 }} />
-        <Typography variant="h4" gutterBottom component="div" sx={{ mt: 2 }}>
-          Battle tag: {name}
-        </Typography>
-        <Typography variant="h4" gutterBottom component="div">
-          Level: {prestige}
-          {level}
-        </Typography>
-      </div>
+      <Box className="user-container" sx={{ flexGrow: 1 }}>
+        <Grid
+          container
+          spacing={2}
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid item xs={2}>
+            <Item elevation="0">
+              <Avatar alt={name} src={icon} sx={{ width: 56, height: 56 }} />
+            </Item>
+          </Grid>
+          <Grid item xs={6}>
+            <Item elevation="0">
+              <Typography variant="h4" gutterBottom component="div">
+                Battle tag: {name}
+              </Typography>
+            </Item>
+          </Grid>
+          <Grid item xs={4}>
+            <Item elevation="0">
+              <Typography variant="h4" gutterBottom component="div">
+                Level: {prestige}
+                {level}
+              </Typography>
+            </Item>
+          </Grid>
+        </Grid>
+      </Box>
     </div>
   );
 };
