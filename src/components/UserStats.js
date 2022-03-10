@@ -110,14 +110,14 @@ const UserStats = () => {
           <Grid item xs={6}>
             <Item elevation="0">
               <Typography variant="h4" gutterBottom component="div">
-                Battle tag: {name}
+                {name}
               </Typography>
             </Item>
           </Grid>
           <Grid item xs={4}>
             <Item elevation="0">
               <Typography variant="h4" gutterBottom component="div">
-                Level: {prestige}
+                Level {prestige}
                 {level}
               </Typography>
             </Item>
